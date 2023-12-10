@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>question 2</title>
+</head>
+<body>
+
+<script>
+
+    var numberOfParticipants = parseInt(prompt("Enter the number of participants:"));
+
+
+    if (isNaN(numberOfParticipants) || numberOfParticipants <= 0) {
+        document.write("<p>Please enter a valid positive number for the participants.</p>");
+    } else {
+
+        var participantNames = [];
+
+
+        for (var i = 0; i < numberOfParticipants; i++) {
+            var name = prompt("Enter the name of participant " + (i + 1) + ":");
+            participantNames.push(name);
+        }
+
+
+        participantNames.sort();
+
+
+        document.write("<ol>");
+        for (var j = 0; j < participantNames.length; j++) {
+            document.write("<li>" + participantNames[j] + "</li>");
+        }
+        document.write("</ol>");
+    }
+</script>
+
+</body>
+</html>

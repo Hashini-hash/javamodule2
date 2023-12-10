@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>question10</title>
+</head>
+<body>
+
+<script>
+
+    function initializeCandidates(candidateNames) {
+        var candidates = [];
+        for (var i = 0; i < candidateNames.length; i++) {
+            candidates.push({
+                name: candidateNames[i],
+                votes: 0
+            });
+        }
+        return candidates;
+    }
+
+
+    function conductVoting(candidates, numVoters) {
+        for (var i = 1; i <= numVoters; i++) {
+            var vote = prompt("Voter " + i + ", enter the name of the candidate you want to vote for (or press Enter for an empty vote):");
+
+
+            if (vote.trim() !== "") {
+
+                var candidate = candidates.find(function(candidate) {
+                    return candidate.name.toLowerCase() === vote.toLowerCase();
+                });
+
+
+                if (candidate) {
+                    candidate.votes++;
+                } else {
+                    console.log("Invalid vote for " + vote + ". This candidate does not exist.");
+                    i--;
+                }
+            }
+
+        }
+    }
+
+
+    function printResults(candidates) {
+
+        candidates.sort(function(a, b) {
+            return b.votes - a.votes;
+        });
+
+
+        console.log("The winner is " + candidates[0].name + " with " + candidates[0].votes + " votes.");
+        console.log("Results:");
+        for (var i = 0; i < candidates.length; i++) {
+            console.log(candidates[i].name + ": " + candidates[i].votes + " votes");
+        }
+    }
+
+
+    var numCandidates = parseInt(prompt("Enter the number of candidates:"));
+    var candidateNames = [];
+
+
+    for (var i = 1; i <= numCandidates; i++) {
+        var candidateName = prompt("Enter the name for candidate " + i + ":");
+        candidateNames.push(candidateName);
+    }
+
+
+    var candidates = initializeCandidates(candidateNames);
+
+
+    var numVoters = parseInt(prompt("Enter the number of voters:"));
+
+
+    conductVoting(candidates, numVoters);
+
+
+    printResults(candidates);
+</script>
+
+</body>
+</html>

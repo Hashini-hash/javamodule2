@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>question 7</title>
+</head>
+<body>
+
+<script>
+
+    function rollDice(sides) {
+        return Math.floor(Math.random() * sides) + 1;
+    }
+
+    var maxNumber = parseInt(prompt("Enter the maximum number on the dice:"));
+
+
+    if (isNaN(maxNumber) || maxNumber <= 0) {
+        document.write("<p>Please enter a valid positive number for the maximum number on the dice.</p>");
+    } else {
+
+        document.write("<ul>");
+
+        while (true) {
+            var result = rollDice(maxNumber);
+            document.write("<li>Dice roll: " + result + "</li>");
+
+            if (result === maxNumber) {
+                break;
+            }
+        }
+
+        document.write("</ul>");
+    }
+</script>
+
+</body>
+</html>

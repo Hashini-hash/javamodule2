@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>question9</title>
+</head>
+<body>
+
+<script>
+
+    function even(numbers) {
+        var evenArray = [];
+        for (var i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 === 0) {
+                evenArray.push(numbers[i]);
+            }
+        }
+        return evenArray;
+    }
+
+
+    var numberArray = [2, 7, 4];
+
+
+    console.log("Original array:", numberArray);
+    console.log("Array of even numbers:", even(numberArray));
+</script>
+
+</body>
+</html>
